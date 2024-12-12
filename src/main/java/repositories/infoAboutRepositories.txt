@@ -1,0 +1,2 @@
+Repositories används för att kommunicera med databasen.
+Dessa är gränssnitt som utökar JPA:s CrudRepository eller JpaRepository.

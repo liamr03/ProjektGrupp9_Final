@@ -1,17 +1,19 @@
+version: '3.8'
+
 services:
   mysql:
     image: mysql:latest
-    container_name: mysqlM
+    container_name: mysql_course_db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_ROOT_HOST: '%'
-      MYSQL_DATABASE: demo
+      MYSQL_DATABASE: course_db
       MYSQL_USER: user
       MYSQL_PASSWORD: password
       LANG: C.UTF-8
 
     ports:
-      - "3306:3306"
+      - "3307:3307"
     volumes:
       - mysql-data:/var/lib/mysql
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
