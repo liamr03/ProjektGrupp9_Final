@@ -1,6 +1,4 @@
-CREATE
-DATABASE SkolaDB
-
+use course_db;
 
 CREATE TABLE Studenter
 (
