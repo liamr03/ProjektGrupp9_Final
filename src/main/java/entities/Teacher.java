@@ -5,28 +5,29 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table (name = "Teacher")
+@Table(name = "Lärare")
 public class Teacher {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "teacher_Id", nullable = false)
+    @Column(name = "LärarID", nullable = false)
     private int teacherId;
 
-    @Column (name = "teacher_name", nullable = false)
+    @Column(name = "LärarNamn", nullable = false)
     private String teacherName;
 
-    @Column (name = "teacher_age")
+    @Column(name = "Ålder")
     private int teacherAge;
 
-    @Column(name = "teacher_kontakt", unique = true)
+    @Column(name = "Kontakt", unique = true)
     private String teacherKontakt;
 
-    @Column(name= "teacher_startDatum")
-    private LocalDate teacherStartDatum;
+    @Column(name = " AnställningsDatum")
+    private LocalDate teacherStartDate;
 
-    @Column (name="kursId")
-    private int kursId;
+    @ManyToOne
+    @JoinColumn(name = "KursID")
+    private Course course;
 
     public int getTeacherId() {
         return teacherId;
@@ -53,17 +54,21 @@ public class Teacher {
     public void setTeacherKontakt(String teacherKontakt) {
         this.teacherKontakt = teacherKontakt;
     }
-    public LocalDate getTeacherStartDatum() {
-        return teacherStartDatum;
+
+    public LocalDate getTeacherStartDate() {
+        return teacherStartDate;
     }
-    public void setTeacherStartDatum(LocalDate teacherStartDatum) {
-        this.teacherStartDatum = teacherStartDatum;
+
+    public void setTeacherStartDate(LocalDate teacherStartDate) {
+        this.teacherStartDate = teacherStartDate;
     }
-    public int getKursId() {
-        return kursId;
+
+    public Course getCourse() {
+        return course;
     }
-    public void setKursId(int kursId) {
-        this.kursId = kursId;
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
 }
