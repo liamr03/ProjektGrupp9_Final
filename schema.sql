@@ -1,5 +1,42 @@
-use course_db;
+CREATE DATABASE SkolaDB;
+USE SkolaDB;
 
+-- Create Kurser table first
+CREATE TABLE Kurser
+(
+    KursID     INT         NOT NULL AUTO_INCREMENT,
+    Kursnamn   VARCHAR(50) NOT NULL UNIQUE,
+    Kursstart  DATE,
+    KursLärare VARCHAR(50),
+    PRIMARY KEY (KursID)
+);
+
+-- Create Lärare table next, since it references Kurser
+CREATE TABLE Lärare
+(
+    LärarID           INT         NOT NULL AUTO_INCREMENT,
+    LärarNamn         VARCHAR(50) NOT NULL,
+    Ålder             INT,
+    Kontakt           VARCHAR(50) UNIQUE,
+    AnställningsDatum DATE,
+    KursID            INT,
+    PRIMARY KEY (LärarID),
+    FOREIGN KEY (KursID) REFERENCES Kurser (KursID)
+);
+
+-- Then create Betygs table, since it references Lärare and Kurser
+CREATE TABLE Betygs
+(
+    BetygsID INT NOT NULL AUTO_INCREMENT,
+    Betyg    INT CHECK (Betyg BETWEEN 1 AND 5),
+    LärarID  INT,
+    KursID   INT,
+    PRIMARY KEY (BetygsID),
+    FOREIGN KEY (LärarID) REFERENCES Lärare (LärarID),
+    FOREIGN KEY (KursID) REFERENCES Kurser (KursID)
+);
+
+-- Create Studenter table, which references Betygs and Kurser
 CREATE TABLE Studenter
 (
     StudentID INT         NOT NULL AUTO_INCREMENT,
@@ -14,42 +51,7 @@ CREATE TABLE Studenter
     FOREIGN KEY (KursID) REFERENCES Kurser (KursID)
 );
 
-
-CREATE TABLE Lärare
-(
-    LärarID           INT         NOT NULL AUTO_INCREMENT,
-    LärarNamn         VARCHAR(50) NOT NULL,
-    Ålder             INT,
-    Kontakt           VARCHAR(50) UNIQUE,
-    AnställningsDatum DATE,
-    KursID            INT,
-    PRIMARY KEY (LärarID),
-    FOREIGN KEY (KursID) REFERENCES Kurser (KursID)
-);
-
-
-CREATE TABLE Kurser
-(
-    KursID     INT         NOT NULL AUTO_INCREMENT,
-    Kursnamn   VARCHAR(50) NOT NULL UNIQUE,
-    Kursstart  DATE,
-    KursLärare VARCHAR(50),
-    PRIMARY KEY (KursID)
-);
-
-
-CREATE TABLE Betygs
-(
-    BetygsID INT NOT NULL AUTO_INCREMENT,
-    Betyg    INT CHECK (Betyg BETWEEN 1 AND 5),
-    LärarID  INT,
-    KursID   INT,
-    PRIMARY KEY (BetygsID),
-    FOREIGN KEY (LärarID) REFERENCES Lärare (LärarID),
-    FOREIGN KEY (KursID) REFERENCES Kurser (KursID)
-);
-
-
+-- Finally, create KursPuls table, which references Studenter and Kurser
 CREATE TABLE KursPuls
 (
     PulsID    INT NOT NULL AUTO_INCREMENT,
