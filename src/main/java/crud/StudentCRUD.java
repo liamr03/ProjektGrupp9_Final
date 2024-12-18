@@ -1,4 +1,4 @@
-package repositories;
+package crud;
 
 import com.example.entity.Student;
 import jakarta.persistence.EntityManager;
@@ -6,8 +6,7 @@ import jakarta.persistence.PersistenceContext;
 
 import java.util.List;
 
-
-public class StudentDAO {
+public class StudentCRUD {
 
     @PersistenceContext
     private EntityManager entityManager;
