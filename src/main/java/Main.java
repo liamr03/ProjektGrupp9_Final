@@ -125,7 +125,8 @@ public class Main {
 
     private static void viewAllStudents() {
         studentCRUD.getAllStudents().forEach(System.out::println);
-        //Enter to continue (Not yet implemented)
+
+        waitForEnter(); //Wait for enter before continuing
     }
 
     private static void removeStudent() {
@@ -198,7 +199,7 @@ public class Main {
     private static void viewAllGrades() {
         gradeCRUD.getAllGrades().forEach(System.out::println);
 
-        //Enter to continue (Not yet implemented)
+        waitForEnter(); //Wait for enter before continuing
     }
 
     private static void updateGrade() {
@@ -260,20 +261,20 @@ public class Main {
         // Implement logic to calculate average student grade for all courses
         System.out.println("Average student grade functionality not implemented.");
 
-        //Enter to continue (Not yet implemented)
+        waitForEnter(); //Wait for enter before continuing
     }
 
     private static void viewCoursePulseAverage() {
         // Implement logic to view course pulse average
         System.out.println("View course pulse average functionality not implemented.");
 
-        //Enter to continue (Not yet implemented)
+        waitForEnter(); //Wait for enter before continuing
     }
 
     private static void viewAllTeachers() {
         TeacherCRUD.getAllTeachers().forEach(System.out::println); // Use the instance of teacherCRUD
 
-        //Enter to continue (Not yet implemented)
+        waitForEnter(); //Wait for enter before continuing
     }
 
     private static void pause() {
@@ -282,5 +283,15 @@ public class Main {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    // Helper method to wait for Enter key
+    private static void waitForEnter() {
+        System.out.println("Press Enter to continue...");
+        scanner.nextLine();  // Wait for user to press Enter
+    }
+
+    public static void setTeacherCRUD(TeacherCRUD teacherCRUD) {
+        Main.teacherCRUD = teacherCRUD;
     }
 }
