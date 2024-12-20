@@ -120,7 +120,7 @@ public class Main {
         studentCRUD.addStudent(student);
         System.out.println("Student added successfully!");
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void viewAllStudents() {
@@ -135,7 +135,7 @@ public class Main {
 
         studentCRUD.deleteStudent(id);
         System.out.println("Student removed successfully!");
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void addCourse() {
@@ -148,7 +148,7 @@ public class Main {
         courseCRUD.addCourse(course);
         System.out.println("Course added successfully!");
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void addTeacher() {
@@ -161,14 +161,14 @@ public class Main {
         teacherCRUD.addTeacher(teacher);
         System.out.println("Teacher added successfully! ");
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void gradeStudent() {
         // Implement logic for grading a student
         System.out.println("Grade student functionality not implemented.");
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void addStudentFeedback() {
@@ -192,7 +192,7 @@ public class Main {
         courseFeedbackCRUD.addCourseFeedback(courseFeedback);
         System.out.println("Course feedback added successfully!");
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void viewAllGrades() {
@@ -224,7 +224,7 @@ public class Main {
             System.out.println("Invalid grade value: " + e.getMessage());
         }
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void removeCourse() {
@@ -235,7 +235,7 @@ public class Main {
         courseCRUD.deleteCourse(id);
         System.out.println("Course removed successfully!");
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
     private static void removeTeacher() {
@@ -252,7 +252,7 @@ public class Main {
         TeacherCRUD.deleteTeacher(teacherId);
         System.out.println("Teacher removed successfully!");
 
-        pause(2000);  // Pause for 2 seconds
+        pause();  // Pause for 2 seconds
     }
 
 
@@ -276,9 +276,9 @@ public class Main {
         //Enter to continue (Not yet implemented)
     }
 
-    private static void pause(int milliseconds) {
+    private static void pause() {
         try {
-            Thread.sleep(milliseconds);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
