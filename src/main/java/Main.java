@@ -166,8 +166,35 @@ public class Main {
     }
 
     private static void gradeStudent() {
-        // Implement logic for grading a student
-        System.out.println("Grade student functionality not implemented.");
+        System.out.println("Enter student ID: ");
+        int studentId = scanner.nextInt();
+
+        System.out.println("Enter course ID: ");
+        int courseId = scanner.nextInt();
+
+        System.out.println("Enter teacher ID: ");
+        int teacherId = scanner.nextInt();
+
+        System.out.println("Enter the student's grade(1-5):  ");
+        int gradeValue = scanner.nextInt();
+
+        Student student = studentCRUD.getStudent(studentId);
+        Course course = courseCRUD.getCourse(courseId);
+        Teachers teacher = TeacherCRUD.getTeacher(teacherId);
+
+        if (student == null || course == null || teacher == null) {
+            System.out.println("Invalid student, course or teacher ID.");
+            return;
+        }
+
+        Grades grade = new Grades();
+        grade.setStudent(student);
+        grade.setCourse(course);
+        grade.setTeacher(teacher);
+        grade.setValue(gradeValue);
+
+        gradeCRUD.addGrade(grade);
+        System.out.println("Grade added successfully!");
 
         pause();  // Pause for 2 seconds
     }
