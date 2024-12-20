@@ -1,4 +1,7 @@
 CREATE DATABASE SkolaDB;
+
+SHOW DATABASES;
+
 USE SkolaDB;
 
 -- Create Kurser table first

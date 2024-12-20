@@ -1,7 +1,5 @@
-package com.example.entity;
+package entities;
 
-import entities.Course;
-import entities.Grade;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

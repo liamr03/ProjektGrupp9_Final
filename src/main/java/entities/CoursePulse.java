@@ -18,7 +18,7 @@ public class CoursePulse {
 
     @ManyToOne
     @JoinColumn(name = "StudentID", referencedColumnName = "StudentID", nullable = false)
-    private com.example.entity.Student student;  // Many CoursePuls can be associated with one Student
+    private Student student;  // Many CoursePuls can be associated with one Student
 
     // Getters and setters
     public int getPulsID() {
@@ -45,11 +45,11 @@ public class CoursePulse {
         this.course = course;
     }
 
-    public com.example.entity.Student getStudent() {
+    public Student getStudent() {
         return student;
     }
 
-    public void setStudent(com.example.entity.Student student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
 }

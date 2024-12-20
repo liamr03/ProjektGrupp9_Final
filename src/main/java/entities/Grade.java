@@ -24,7 +24,7 @@ public class Grade {
 
     @ManyToOne
     @JoinColumn(name = "StudentID")
-    private com.example.entity.Student student;
+    private Student student;  // Corrected import for Student
 
     // Getters and setters
     public int getId() {
@@ -62,11 +62,11 @@ public class Grade {
         this.course = course;
     }
 
-    public com.example.entity.Student getStudent() {
+    public Student getStudent() {  // Corrected getter for Student
         return student;
     }
 
-    public void setStudent(com.example.entity.Student student) {
+    public void setStudent(Student student) {  // Corrected setter for Student
         this.student = student;
     }
 }

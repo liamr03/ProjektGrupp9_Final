@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CoursePulseRepository {
 
-    private CoursePulseCRUD coursePulseCRUD;
+    private final CoursePulseCRUD coursePulseCRUD;
 
     public CoursePulseRepository(EntityManager entityManager) {
         this.coursePulseCRUD = new CoursePulseCRUD(entityManager);
