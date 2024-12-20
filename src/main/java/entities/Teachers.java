@@ -5,28 +5,28 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Lärare")
-public class Teacher {
+@Table(name = "Teachers")
+public class Teachers {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "LärarID", nullable = false)
+    @Column(name = "TeacherID", nullable = false)
     private int teacherId;
 
-    @Column(name = "LärarNamn", nullable = false)
+    @Column(name = "TeacherName", nullable = false)
     private String teacherName;
 
-    @Column(name = "Ålder")
+    @Column(name = "Age")
     private int teacherAge;
 
-    @Column(name = "Kontakt", unique = true)
-    private String teacherKontakt;
+    @Column(name = "Contact", unique = true)
+    private String teacherContact;
 
-    @Column(name = " AnställningsDatum")
+    @Column(name = "HireDate")
     private LocalDate teacherStartDate;
 
     @ManyToOne
-    @JoinColumn(name = "KursID")
+    @JoinColumn(name = "CourseID")
     private Course course;
 
     public int getTeacherId() {
@@ -48,11 +48,13 @@ public class Teacher {
     public void setTeacherAge(int teacherAge) {
         this.teacherAge = teacherAge;
     }
-    public String getTeacherKontakt() {
-        return teacherKontakt;
+
+    public String getTeacherContact() {
+        return teacherContact;
     }
-    public void setTeacherKontakt(String teacherKontakt) {
-        this.teacherKontakt = teacherKontakt;
+
+    public void setTeacherContact(String teacherContact) {
+        this.teacherContact = teacherContact;
     }
 
     public LocalDate getTeacherStartDate() {

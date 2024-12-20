@@ -5,21 +5,21 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Kurser")
+@Table(name = "Courses")
 public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "KursId", nullable = false)
+    @Column(name = "CourseId", nullable = false)
     private int courseId;
 
-    @Column(name = "KursNamn", nullable = false, unique = true)
+    @Column(name = "CourseName", nullable = false, unique = true)
     private String courseName;
 
-    @Column(name = "Kursstart")
+    @Column(name = "CourseStart")
     private LocalDate courseStart;
 
-    @Column(name = "KursLärare")
+    @Column(name = "CourseTeacher")
     private String courseTeacher;
 
     // Getters and setters for each field

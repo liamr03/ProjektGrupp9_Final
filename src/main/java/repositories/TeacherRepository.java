@@ -1,7 +1,7 @@
 package repositories;
 
 import crud.TeacherCRUD;
-import entities.Teacher;
+import entities.Teachers;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
@@ -15,22 +15,22 @@ public class TeacherRepository {
     }
 
     // Method to add a teacher
-    public void addTeacher(Teacher teacher) {
+    public void addTeacher(Teachers teacher) {
         teacherCRUD.addTeacher(teacher);
     }
 
     // Method to get a teacher by its ID
-    public Teacher getTeacher(int teacherID) {
+    public Teachers getTeacher(int teacherID) {
         return teacherCRUD.getTeacher(teacherID);
     }
 
     // Method to get all teachers
-    public List<Teacher> getAllTeachers() {
+    public List<Teachers> getAllTeachers() {
         return teacherCRUD.getAllTeachers();
     }
 
     // Method to update a teacher
-    public void updateTeacher(Teacher teacher) {
+    public void updateTeacher(Teachers teacher) {
         teacherCRUD.updateTeacher(teacher);
     }
 

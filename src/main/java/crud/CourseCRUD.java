@@ -26,8 +26,8 @@ public class CourseCRUD {
         }
     }
 
-    public Course getCourse(int kursID) {
-        return entityManager.find(Course.class, kursID);
+    public Course getCourse(int courseID) {
+        return entityManager.find(Course.class, courseID);
     }
 
     public List<Course> getAllCourses() {
@@ -46,11 +46,11 @@ public class CourseCRUD {
         }
     }
 
-    public void deleteCourse(int kursID) {
+    public void deleteCourse(int courseID) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            Course course = entityManager.find(Course.class, kursID);
+            Course course = entityManager.find(Course.class, courseID);
             if (course != null) {
                 entityManager.remove(course);
             }

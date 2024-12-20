@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Studenter")
+@Table(name = "Students")
 public class Student {
 
     @Id
@@ -13,24 +13,24 @@ public class Student {
     @Column(name = "StudentID")
     private int id;
 
-    @Column(name = "Namn", nullable = false)
+    @Column(name = "Name", nullable = false)
     private String name;
 
-    @Column(name = "Ålder")
+    @Column(name = "Age")
     private int age;
 
-    @Column(name = "Kontakt", unique = true)
+    @Column(name = "Contact", unique = true)
     private String contact;
 
-    @Column(name = "Skolstart")
+    @Column(name = "EnrollmentDate")
     private LocalDate startDate;
 
     @ManyToOne
-    @JoinColumn(name = "BetygID")
-    private Grade grade;
+    @JoinColumn(name = "GradeID")
+    private Grades grade;
 
     @ManyToOne
-    @JoinColumn(name = "KursID")
+    @JoinColumn(name = "CourseID")
     private Course course;
 
     // Getters and setters for each field
@@ -74,11 +74,11 @@ public class Student {
         this.startDate = startDate;
     }
 
-    public Grade getGrade() {
+    public Grades getGrade() {
         return grade;
     }
 
-    public void setGrade(Grade grade) {
+    public void setGrade(Grades grade) {
         this.grade = grade;
     }
 
@@ -89,4 +89,18 @@ public class Student {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", contact='" + contact + '\'' +
+                ", startDate=" + (startDate != null ? startDate : "null") +
+                ", course=" + (course != null ? course.getCourseName() : "null") +
+                ", grade=" + (grade != null ? grade.getValue() : "null") +
+                '}';
+    }
+
 }

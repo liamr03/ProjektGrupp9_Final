@@ -3,23 +3,23 @@ package entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Betygs")
-public class Grade {
+@Table(name = "Grades")
+public class Grades {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BetygsID", nullable = false)
+    @Column(name = "GradeID", nullable = false)
     private int id;
 
-    @Column(name = "Betyg", nullable = false)
+    @Column(name = "Grade", nullable = false)
     private int value;
 
     @ManyToOne
-    @JoinColumn(name = "LärarID")
-    private Teacher teacher;
+    @JoinColumn(name = "TeacherID")
+    private Teachers teacher;
 
     @ManyToOne
-    @JoinColumn(name = "KursID")
+    @JoinColumn(name = "CourseID")
     private Course course;
 
     @ManyToOne
@@ -41,16 +41,16 @@ public class Grade {
 
     public void setValue(int value) {
         if (value < 1 || value > 5) {
-            throw new IllegalArgumentException("Betyg måste vara mellan 1 och 5");
+            throw new IllegalArgumentException("Grade must be between 1-5");
         }
         this.value = value;
     }
 
-    public Teacher getTeacher() {
+    public Teachers getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(Teacher teacher) {
+    public void setTeacher(Teachers teacher) {
         this.teacher = teacher;
     }
 

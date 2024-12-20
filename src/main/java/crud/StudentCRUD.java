@@ -1,6 +1,6 @@
 package crud;
 
-import com.example.entity.Student;
+import entities.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
@@ -20,7 +20,7 @@ public class StudentCRUD {
         entityManager.getTransaction().commit();
     }
 
-    public Student getStudent(int id) {
+    public entities.Student getStudent(int id) {
         return entityManager.find(Student.class, id);
     }
 

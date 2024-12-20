@@ -1,24 +1,24 @@
 package crud;
 
-import entities.CoursePulse;
+import entities.CourseFeedback;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
 
-public class CoursePulseCRUD {
+public class CourseFeedbackCRUD {
 
     private EntityManager entityManager;
 
-    public CoursePulseCRUD(EntityManager entityManager) {
+    public CourseFeedbackCRUD(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    public void addCoursePulse(CoursePulse coursePulse) {
+    public void addCourseFeedback(CourseFeedback courseFeedback) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            entityManager.persist(coursePulse);
+            entityManager.persist(courseFeedback);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
@@ -26,19 +26,19 @@ public class CoursePulseCRUD {
         }
     }
 
-    public CoursePulse getCoursePulse(int pulsID) {
-        return entityManager.find(CoursePulse.class, pulsID);
+    public CourseFeedback getCourseFeedback(int feedbackID) {
+        return entityManager.find(CourseFeedback.class, feedbackID);
     }
 
-    public List<CoursePulse> getAllCoursePulses() {
-        return entityManager.createQuery("FROM CoursePulse", CoursePulse.class).getResultList();
+    public List<CourseFeedback> getAllCourseFeedbacks() {
+        return entityManager.createQuery("FROM CourseFeedback", CourseFeedback.class).getResultList();
     }
 
-    public void updateCoursePulse(CoursePulse coursePulse) {
+    public void updateCourseFeedback(CourseFeedback courseFeedback) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            entityManager.merge(coursePulse);
+            entityManager.merge(courseFeedback);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
@@ -46,13 +46,13 @@ public class CoursePulseCRUD {
         }
     }
 
-    public void deleteCoursePulse(int pulsID) {
+    public void deleteCourseFeedback(int feedbackID) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            CoursePulse coursePulse = entityManager.find(CoursePulse.class, pulsID);
-            if (coursePulse != null) {
-                entityManager.remove(coursePulse);
+            CourseFeedback courseFeedback = entityManager.find(CourseFeedback.class, feedbackID);
+            if (courseFeedback != null) {
+                entityManager.remove(courseFeedback);
             }
             transaction.commit();
         } catch (Exception e) {

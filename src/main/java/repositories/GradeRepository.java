@@ -1,7 +1,7 @@
 package repositories;
 
 import crud.GradeCRUD;
-import entities.Grade;
+import entities.Grades;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
@@ -15,22 +15,22 @@ public class GradeRepository {
     }
 
     // Method to add a grade
-    public void addGrade(Grade grade) {
+    public void addGrade(entities.Grades grade) {
         gradeCRUD.addGrade(grade);
     }
 
     // Method to get a grade by its ID
-    public Grade getGrade(int gradeID) {
+    public Grades getGrade(int gradeID) {
         return gradeCRUD.getGrade(gradeID);
     }
 
     // Method to get all grades
-    public List<Grade> getAllGrades() {
+    public List<Grades> getAllGrades() {
         return gradeCRUD.getAllGrades();
     }
 
     // Method to update a grade
-    public void updateGrade(Grade grade) {
+    public void updateGrade(Grades grade) {
         gradeCRUD.updateGrade(grade);
     }
 

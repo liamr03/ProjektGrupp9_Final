@@ -5,18 +5,22 @@
     <persistence-unit name="educationPU">
 
         <class>entities.Student</class>
+        <class>entities.Grades</class>
+        <class>entities.Course</class>
+        <class>entities.CourseFeedback</class>
+        <class>entities.Teachers</class>
 
         <properties>
             <!-- Database connection settings -->
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SkolaDB"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/SchoolDB"/>
             <property name="jakarta.persistence.jdbc.user" value="username"/>
             <property name="jakarta.persistence.jdbc.password" value="password"/>
             <!-- Automatically export the schema -->
             <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
             <!-- Echo all executed SQL to console -->
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.highlight_sql" value="true"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.highlight_sql" value="false"/>
         </properties>
     </persistence-unit>
 </persistence>

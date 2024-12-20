@@ -1,6 +1,6 @@
 package crud;
 
-import entities.Grade;
+import entities.Grades;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -14,7 +14,7 @@ public class GradeCRUD {
         this.entityManager = entityManager;
     }
 
-    public void addGrade(Grade grade) {
+    public void addGrade(Grades grade) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
@@ -26,15 +26,15 @@ public class GradeCRUD {
         }
     }
 
-    public Grade getGrade(int gradeID) {
-        return entityManager.find(Grade.class, gradeID);
+    public Grades getGrade(int gradeID) {
+        return entityManager.find(Grades.class, gradeID);
     }
 
-    public List<Grade> getAllGrades() {
-        return entityManager.createQuery("FROM Grade", Grade.class).getResultList();
+    public List<Grades> getAllGrades() {
+        return entityManager.createQuery("FROM Grades", Grades.class).getResultList();
     }
 
-    public void updateGrade(Grade grade) {
+    public void updateGrade(Grades grade) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
@@ -50,7 +50,7 @@ public class GradeCRUD {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
-            Grade grade = entityManager.find(Grade.class, gradeID);
+            Grades grade = entityManager.find(Grades.class, gradeID);
             if (grade != null) {
                 entityManager.remove(grade);
             }
