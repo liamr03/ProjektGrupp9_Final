@@ -1,2 +1,0 @@
-Entities representerar de objekt som lagras i databasen.
-Varje entitet motsvarar en tabell i databasen, och fälten i entiteten motsvarar kolumner i tabellen.
