@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GradeCRUD {
 
-    private EntityManager entityManager;
+    private static EntityManager entityManager;
 
     public GradeCRUD(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -26,15 +26,15 @@ public class GradeCRUD {
         }
     }
 
-    public Grades getGrade(int gradeID) {
+    public static Grades getGrade(int gradeID) {
         return entityManager.find(Grades.class, gradeID);
     }
 
-    public List<Grades> getAllGrades() {
+    public static List<Grades> getAllGrades() {
         return entityManager.createQuery("FROM Grades", Grades.class).getResultList();
     }
 
-    public void updateGrade(Grades grade) {
+    public static void updateGrade(Grades grade) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();

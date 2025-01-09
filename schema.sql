@@ -1,6 +1,6 @@
-CREATE DATABASE SchoolDB;
+DROP DATABASE SchoolDB;
 
-SHOW DATABASES;
+CREATE DATABASE SchoolDB;
 
 USE SchoolDB;
 
@@ -21,7 +21,7 @@ CREATE TABLE Teachers
     TeacherName VARCHAR(50) NOT NULL,
     Age         INT,
     Contact     VARCHAR(50) UNIQUE,
-    HireDate    DATE,
+    HireDate VARCHAR(50),
     CourseID    INT,
     PRIMARY KEY (TeacherID),
     FOREIGN KEY (CourseID) REFERENCES Courses (CourseID)
@@ -46,7 +46,7 @@ CREATE TABLE Students
     Name           VARCHAR(50) NOT NULL,
     Age            INT,
     Contact        VARCHAR(100) UNIQUE,
-    EnrollmentDate DATE,
+    EnrollmentDate varchar(50),
     GradeID        INT,
     CourseID       INT,
     PRIMARY KEY (StudentID),
@@ -65,3 +65,11 @@ CREATE TABLE CourseFeedback
     FOREIGN KEY (CourseID) REFERENCES Courses (CourseID),
     FOREIGN KEY (StudentID) REFERENCES Students (StudentID)
 );
+
+ALTER TABLE Grades
+    ADD StudentID INT;
+
+ALTER TABLE Grades
+    ADD CONSTRAINT fk_student
+        FOREIGN KEY (StudentID)
+            REFERENCES Students (StudentID);

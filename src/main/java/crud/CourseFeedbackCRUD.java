@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CourseFeedbackCRUD {
 
-    private EntityManager entityManager;
+    private static EntityManager entityManager;
 
     public CourseFeedbackCRUD(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -46,7 +46,7 @@ public class CourseFeedbackCRUD {
         }
     }
 
-    public void deleteCourseFeedback(int feedbackID) {
+    public static void deleteCourseFeedback(int feedbackID) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();

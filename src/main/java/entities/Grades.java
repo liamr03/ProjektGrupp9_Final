@@ -69,4 +69,15 @@ public class Grades {
     public void setStudent(Student student) {  // Corrected setter for Student
         this.student = student;
     }
+
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "Grade ID=" + id + // Use the 'id' field instead of 'GradeID'
+                ", Teacher=" + (teacher != null ? teacher.getTeacherName() : "null") +
+                ", Course=" + (course != null ? course.getCourseName() : "null") +
+                ", Student=" + (student != null ? student.getName() : "null") +
+                ", Grade=" + value +  // Access the grade value directly from 'value'
+                '}';
+    }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CourseCRUD {
 
-    private EntityManager entityManager;
+    private static EntityManager entityManager;
 
     public CourseCRUD(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -26,15 +26,15 @@ public class CourseCRUD {
         }
     }
 
-    public Course getCourse(int courseID) {
+    public static Course getCourse(int courseID) {
         return entityManager.find(Course.class, courseID);
     }
 
-    public List<Course> getAllCourses() {
+    public static List<Course> getAllCourses() {
         return entityManager.createQuery("FROM Course", Course.class).getResultList();
     }
 
-    public void updateCourse(Course course) {
+    public static void updateCourse(Course course) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();

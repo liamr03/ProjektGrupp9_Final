@@ -2,8 +2,6 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "Courses")
 public class Course {
@@ -17,7 +15,7 @@ public class Course {
     private String courseName;
 
     @Column(name = "CourseStart")
-    private LocalDate courseStart;
+    private String courseStart;
 
     @Column(name = "CourseTeacher")
     private String courseTeacher;

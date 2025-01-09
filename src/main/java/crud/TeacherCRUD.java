@@ -18,6 +18,7 @@ public class TeacherCRUD {
         return entityManager.find(Teachers.class, teacherID);
     }
 
+
     public static List<Teachers> getAllTeachers() {
         return entityManager.createQuery("FROM Teachers", Teachers.class).getResultList();
     }
@@ -49,7 +50,7 @@ public class TeacherCRUD {
         }
     }
 
-    public void updateTeacher(Teachers teacher) {
+    public static void updateTeacher(Teachers teacher) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();

@@ -2,8 +2,6 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "Teachers")
 public class Teachers {
@@ -57,11 +55,11 @@ public class Teachers {
         this.teacherContact = teacherContact;
     }
 
-    public LocalDate getTeacherStartDate() {
+    public String getTeacherStartDate() {
         return teacherStartDate;
     }
 
-    public void setTeacherStartDate(LocalDate teacherStartDate) {
+    public void setTeacherStartDate(String teacherStartDate) {
         this.teacherStartDate = teacherStartDate;
     }
 
@@ -73,4 +71,18 @@ public class Teachers {
         this.course = course;
     }
 
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "Teacher ID=" + teacherId +
+                ", Teacher Name='" + teacherName + '\'' +
+                ", Age=" + teacherAge +
+                ", Contact='" + teacherContact + '\'' +
+                ", Hire Date=" + (teacherStartDate != null ? teacherStartDate : "null") +
+                '}';
+    }
+
+    public void setHireDate(String hiredate) {
+        this.teacherStartDate = (hiredate);
+    }
 }
