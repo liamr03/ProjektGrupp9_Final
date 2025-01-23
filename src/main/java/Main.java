@@ -906,7 +906,7 @@ public class Main {
         waitForEnter();
     }
 
-    // Helper method to wait for Enter key
+    // Helps method to wait for Enter key
     private static void waitForEnter() {
         System.out.println("Press Enter to continue...");
         scanner.nextLine();  // Wait for user to press Enter
@@ -915,4 +915,5 @@ public class Main {
     public static void setTeacherCRUD(TeacherCRUD teacherCRUD) {
         Main.teacherCRUD = teacherCRUD;
     }
+
 }

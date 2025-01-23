@@ -21,7 +21,7 @@ public class Teachers {
     private String teacherContact;
 
     @Column(name = "HireDate")
-    private LocalDate teacherStartDate;
+    private String teacherStartDate;
 
     @ManyToOne
     @JoinColumn(name = "CourseID")
@@ -34,15 +34,18 @@ public class Teachers {
     public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
     }
+
     public String getTeacherName() {
         return teacherName;
     }
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
     }
+
     public int getTeacherAge() {
         return teacherAge;
     }
+
     public void setTeacherAge(int teacherAge) {
         this.teacherAge = teacherAge;
     }

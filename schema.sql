@@ -9,7 +9,7 @@ CREATE TABLE Courses
 (
     CourseID      INT         NOT NULL AUTO_INCREMENT,
     CourseName    VARCHAR(50) NOT NULL UNIQUE,
-    CourseStart   DATE,
+    CourseStart VARCHAR(50),
     CourseTeacher VARCHAR(50),
     PRIMARY KEY (CourseID)
 );

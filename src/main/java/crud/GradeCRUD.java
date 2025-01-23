@@ -1,6 +1,8 @@
 package crud;
 
+import entities.Course;
 import entities.Grades;
+import entities.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -60,4 +62,27 @@ public class GradeCRUD {
             e.printStackTrace();
         }
     }
+
+    public List<Grades> getGradesByStudent(Student student) {
+        try {
+            return entityManager.createQuery("SELECT g FROM Grades g WHERE g.student = :student", Grades.class)
+                    .setParameter("student", student)
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Grades> getGradesByCourse(Course course) {
+        try {
+            return entityManager.createQuery("SELECT g FROM Grades g WHERE g.course = :course", Grades.class)
+                    .setParameter("course", course)
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

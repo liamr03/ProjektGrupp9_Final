@@ -20,6 +20,7 @@ public class Course {
     @Column(name = "CourseTeacher")
     private String courseTeacher;
 
+
     // Getters and setters for each field
     public int getCourseId() {
         return courseId;
@@ -37,11 +38,11 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public LocalDate getCourseStart() {
+    public String getCourseStart() {
         return courseStart;
     }
 
-    public void setCourseStart(LocalDate courseStart) {
+    public void setCourseStart(String courseStart) {
         this.courseStart = courseStart;
     }
 

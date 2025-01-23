@@ -2,8 +2,6 @@ package entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "Students")
 public class Student {
@@ -23,7 +21,7 @@ public class Student {
     private String contact;
 
     @Column(name = "EnrollmentDate")
-    private LocalDate startDate;
+    private String enrollmentDate;
 
     @ManyToOne
     @JoinColumn(name = "GradeID")
@@ -66,12 +64,12 @@ public class Student {
         this.contact = contact;
     }
 
-    public LocalDate getStartDate() {
-        return startDate;
+    public String getStartDate() {
+        return enrollmentDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
+    public void setStartDate(String startDate) {
+        this.enrollmentDate = startDate;
     }
 
     public Grades getGrade() {
@@ -97,7 +95,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", contact='" + contact + '\'' +
-                ", startDate=" + (startDate != null ? startDate : "null") +
+                ", enrollmentDate=" + (enrollmentDate != null ? enrollmentDate : "null") +
                 ", course=" + (course != null ? course.getCourseName() : "null") +
                 ", grade=" + (grade != null ? grade.getValue() : "null") +
                 '}';
